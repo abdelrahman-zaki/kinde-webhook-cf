@@ -8,6 +8,7 @@ export const onRequestPost: PagesFunction = async ({ request }) => {
     try {
         const authHeader = request.headers.get('Authorization');
         if (!authHeader?.startsWith('Bearer ')) {
+            console.log('Missing or invalid Authorization header');
             return new Response('Missing or invalid Authorization header', { status: 401 });
         }
 
